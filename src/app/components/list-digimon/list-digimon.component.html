@@ -1,0 +1,10 @@
+<div class="digimon-grid">
+    <app-card-digimon *ngFor="let digimon of digimons" [digimon]="digimon"></app-card-digimon>
+  </div>
+  
+  <div class="pagination">
+    <button (click)="digimonService.prevPage()">Indietro</button>
+    <span>Pagina {{ digimonService.page() }}</span>
+    <button (click)="digimonService.nextPage()">Avanti</button>
+  </div>
+
