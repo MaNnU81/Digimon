@@ -7,6 +7,8 @@ import { Digimon } from '../digimon-model';
 export class DigimonService {
   private readonly baseUrl = "https://digi-api.com/api/v1/digimon";
   digimons = signal<Digimon[]>([]);
+  
+
   page = signal(1);
 
   constructor() {
@@ -14,9 +16,15 @@ export class DigimonService {
   }
 
   async loadDigimons() {
-    const response = await fetch(`${this.baseUrl}?page=${this.page()}`);
+    const response = await fetch(`https://digi-api.com/api/v1/digimon?page=${this.page()}`);
     const data = await response.json();
-    this.digimons.set(data.content);
+    
+    this.digimons.set(data.content.map((digimon: any) => ({
+      ...digimon,
+      // Assicura che images sia sempre un array
+      images: digimon.images || []
+      
+    })));
   }
 
   nextPage() {
@@ -28,4 +36,7 @@ export class DigimonService {
     this.page.update(p => Math.max(p - 1, 1));
     this.loadDigimons();
   }
+
+
+  
 }

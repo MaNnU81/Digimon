@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject, input} from '@angular/core';
 import { Digimon } from '../../digimon-model';
+import { DigimonService } from '../../services/digimon.service';
 
 @Component({
   selector: 'app-card-digimon',
@@ -8,5 +9,12 @@ import { Digimon } from '../../digimon-model';
   styleUrl: './card-digimon.component.scss'
 })
 export class CardDigimonComponent {
+  @Input() coverDigimon!: string;
+  @Input() name!: string;
+  @Input() id!: number;
   @Input() digimon!: Digimon;
+
+
+
+
 }

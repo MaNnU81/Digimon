@@ -1,1 +1,8 @@
-<p>card-digimon works!</p>
+
+
+<div class="card">
+    <img [src]="coverDigimon" 
+    (error)="coverDigimon='default-digimon.jpg'" 
+    alt="{{ name }}">
+    <h3>{{ name }}</h3>
+  </div>

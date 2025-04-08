@@ -1,7 +1,15 @@
 <div class="digimon-grid">
-    <app-card-digimon *ngFor="let digimon of digimons" [digimon]="digimon"></app-card-digimon>
+    <app-card-digimon *ngFor="let digimon of digimons" 
+      [digimon]="digimon"
+      [name]="digimon.name"
+      [coverDigimon]="digimon.images[0]?.href || 'public/default-digimon.jpg'"
+      [id]="digimon.id">
+    </app-card-digimon>
   </div>
-  
+
+ 
+
+
   <div class="pagination">
     <button (click)="digimonService.prevPage()">Indietro</button>
     <span>Pagina {{ digimonService.page() }}</span>

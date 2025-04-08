@@ -1,6 +1,6 @@
-import { Component, effect } from '@angular/core';
+import { Component, effect, Input } from '@angular/core';
 import { DigimonService } from '../../services/digimon.service';
-import { type Digimon } from '../../digimon-model';
+import { type Digimon, Image } from '../../digimon-model';
 import { NgFor } from '@angular/common';
 import { CardDigimonComponent } from '../card-digimon/card-digimon.component';
 
@@ -12,13 +12,19 @@ import { CardDigimonComponent } from '../card-digimon/card-digimon.component';
   styleUrl: './list-digimon.component.scss'
 })
 export class ListDigimonComponent {
-digimons:Digimon[] = [];
+digimons?:Digimon[] = [];
+@Input() coverDigimon: string | null = null; 
+@Input() digimon!: Digimon; 
+@Input() name?: string;     
+@Input() id?: number;      
   
  
 
  constructor( public digimonService:DigimonService){
     effect(() => {
       this.digimons = this.digimonService.digimons()
-    })
+    });
  }
+
+
 }
