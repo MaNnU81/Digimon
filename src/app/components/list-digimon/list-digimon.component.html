@@ -2,7 +2,7 @@
     <app-card-digimon *ngFor="let digimon of digimons" 
       [digimon]="digimon"
       [name]="digimon.name"
-      [coverDigimon]="digimon.images[0]?.href || 'public/default-digimon.jpg'"
+      [coverDigimon]="digimon.image || 'assets/images/default-digimon.jpg'"
       [id]="digimon.id">
     </app-card-digimon>
   </div>

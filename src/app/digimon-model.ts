@@ -1,10 +1,12 @@
 
 
 export interface Digimon {
+image: string
     id: number
     name: string
+    href: string
     xAntibody: boolean
-    images: Image[]
+    
     levels: Level[]
     types: Type[]
     attributes: Attribute[]
